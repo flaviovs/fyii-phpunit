@@ -1,0 +1,19 @@
+{
+    "name": "fyii/phpunit",
+    "description": "PHPUnit testing for Yii",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Flavio Veloso",
+            "email": "flaviovs@magnux.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "fyii\\phpunit\\": "src/"
+        }
+    },
+    "require": {
+        "phpunit/phpunit": "^5"
+    }
+}
