@@ -2,12 +2,8 @@
 
 namespace fyii\phpunit;
 
-trait TestCase
+trait Transactions
 {
-    protected $appKey = 'app';
-
-    protected $app;
-
     protected $transaction;
 
 
@@ -20,11 +16,8 @@ trait TestCase
     /**
      * @before
      */
-    public function beforeTest()
+    public function transactionsBeforeTest()
     {
-        $factory = App::$factory;
-        $this->app = $factory($this->appKey);
-
         $this->transaction = $this->getTransaction();
     }
 
@@ -32,14 +25,12 @@ trait TestCase
     /**
      * @after
      */
-    public function afterTest()
+    public function transactionsAfterTest()
     {
         if ($this->transaction) {
             $this->transaction->rollback();
             $this->transaction = NULL;
         }
-
-        $this->app = NULL;
     }
 
 }
